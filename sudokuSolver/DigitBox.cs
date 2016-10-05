@@ -12,6 +12,8 @@ namespace sudokuSolver
 {
     public partial class DigitBox : RichTextBox
     {
+        public short? Value = null;
+        public int ID;
         public DigitBox()
         {
             InitializeComponent();
@@ -20,6 +22,26 @@ namespace sudokuSolver
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
+        }
+
+        private void DigitBox_TextChanged(object sender, EventArgs e)
+        {
+            if (this.Text == string.Empty)
+            {
+                this.Value = null;
+            }
+            else
+            {
+                short value;
+                if (short.TryParse(this.Text, out value))
+                {
+                    this.Value = value;
+                }
+                else
+                {
+                    this.Text = string.Empty;
+                }
+            }
         }
     }
 }

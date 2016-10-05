@@ -41,6 +41,7 @@
             this.Multiline = false;
             this.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.Size = new System.Drawing.Size(20, 20);
+            this.TextChanged += new System.EventHandler(this.DigitBox_TextChanged);
             this.ResumeLayout(false);
 
         }
