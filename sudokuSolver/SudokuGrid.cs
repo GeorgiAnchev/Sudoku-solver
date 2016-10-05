@@ -61,12 +61,28 @@ namespace sudokuSolver
         private void Solve()
         {
             var  answer = (new BruteForceSolver()).Solve(this.digits);
-            SetGridTo(answer);
+            if (answer != null) SetGridTo(answer);
+            else
+            {
+                //TODO
+                //blink in red and stuff
+            }
         }
 
         private void SetGridTo(short?[,] matrix)
         {
-            //To do
+            int boxNumber = 1; 
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    System.Reflection.FieldInfo fieldInfo = typeof(SudokuGrid).GetField("digitBox" + boxNumber.ToString(), System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                    var box = fieldInfo.GetValue(this) as DigitBox;
+                    box.Text = matrix[i, j].ToString();
+
+                    boxNumber++;
+                }
+            }
         }
     }
 }
