@@ -26,14 +26,14 @@ namespace sudokuSolver
 
         private void DigitBox_TextChanged(object sender, EventArgs e)
         {
-            if (this.Text == string.Empty)
+            if (this.Text == string.Empty )
             {
                 this.Value = null;
             }
             else
             {
                 short value;
-                if (short.TryParse(this.Text, out value))
+                if (short.TryParse(this.Text, out value) && value != 0)
                 {
                     this.Value = value;
                 }

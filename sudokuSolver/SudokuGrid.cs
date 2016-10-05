@@ -52,5 +52,21 @@ namespace sudokuSolver
         {
             ChangeDigitValue(sender as DigitBox);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Solve();
+        }
+
+        private void Solve()
+        {
+            var  answer = (new BruteForceSolver()).Solve(this.digits);
+            SetGridTo(answer);
+        }
+
+        private void SetGridTo(short?[,] matrix)
+        {
+            //To do
+        }
     }
 }

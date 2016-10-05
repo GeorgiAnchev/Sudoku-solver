@@ -53,6 +53,7 @@
     <Compile Include="Box.Designer.cs">
       <DependentUpon>Box.cs</DependentUpon>
     </Compile>
+    <Compile Include="BruteForceSolver.cs" />
     <Compile Include="DigitBox.cs">
       <SubType>Component</SubType>
     </Compile>

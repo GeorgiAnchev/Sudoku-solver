@@ -110,6 +110,7 @@
             this.digitBox79 = new sudokuSolver.DigitBox();
             this.digitBox80 = new sudokuSolver.DigitBox();
             this.digitBox81 = new sudokuSolver.DigitBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1438,14 +1439,25 @@
             this.digitBox81.TabIndex = 80;
             this.digitBox81.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 209);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(60, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Solve";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SudokuGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SudokuGrid";
-            this.Size = new System.Drawing.Size(190, 190);
+            this.Size = new System.Drawing.Size(190, 264);
             this.Load += new System.EventHandler(this.SudokuGrid_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1537,5 +1549,6 @@
         private DigitBox digitBox79;
         private DigitBox digitBox80;
         private DigitBox digitBox81;
+        private System.Windows.Forms.Button button1;
     }
 }
