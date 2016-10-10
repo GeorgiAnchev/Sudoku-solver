@@ -14,6 +14,8 @@ namespace sudokuSolver
     {
         public short? Value = null;
         public int ID;
+        private bool manualKeyPressed = false;
+
         public DigitBox()
         {
             InitializeComponent();
@@ -36,12 +38,29 @@ namespace sudokuSolver
                 if (short.TryParse(this.Text, out value) && value != 0)
                 {
                     this.Value = value;
+                    //SelectNextControl(this, true, true, true, true);
+                    if (manualKeyPressed)
+                    {
+                        SendKeys.Send("{TAB}");
+                    }
                 }
                 else
                 {
                     this.Text = string.Empty;
                 }
             }
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            manualKeyPressed = true;
+            base.OnKeyDown(e);
+        }
+
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            base.OnKeyUp(e);
+            manualKeyPressed = false;
         }
     }
 }
